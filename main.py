@@ -1,6 +1,12 @@
 import discord
 from discord import Embed, app_commands
 
+from os import environ
+from dotenv import load_dotenv
+
+load_dotenv()
+token = environ["TOKEN"]
+
 MY_GUILD = discord.Object(id=1233757789126398083)
 
 class MyClient(discord.Client):
@@ -32,4 +38,4 @@ async def on_ready():
     print(f'Logged in as {client.user} (ID: {client.user.id})')
     print('------')
 
-    client.run("MTI5MTQxNjQxNDA5NTE1MTE4NQ.GfHNFL.9yDjejJYHP9y_ev6_QBggHVu7hWWIt5VIqx_zc")
+    client.run(token)
